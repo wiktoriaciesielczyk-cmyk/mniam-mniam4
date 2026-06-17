@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mniam Mniam</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#1b1b1b;
+    color:white;
+}
+
+header{
+    text-align:center;
+    background:#000;
+    padding:20px;
+}
+
+h1{
+    margin:0;
+    font-size:42px;
+}
+
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+h2{
+    border-bottom:2px solid #444;
+    padding-bottom:10px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#2a2a2a;
+    padding:15px;
+    border-radius:12px;
+}
+
+.card h3{
+    color:#ffcc00;
+}
+
+button{
+    background:#ffcc00;
+    color:black;
+    border:none;
+    padding:8px 12px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+#koszyk{
+    background:#2a2a2a;
+    padding:20px;
+    border-radius:12px;
+}
+
+.item{
+    margin:5px 0;
+}
+
+.sms{
+    text-align:center;
+    margin-top:20px;
+}
+
+.sms a{
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:10px;
+    display:inline-block;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Mniam Mniam</h1>
+<p>Cicha 11, Bełchatów (Grocholice)</p>
+</header>
+
+<section>
+
+<h2>Menu</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Burgery</h3>
+<p>Burger wołowina 18 zł <button onclick="dodaj('Burger wołowina',18)">Dodaj</button></p>
+<p>Burger kurczak 17 zł <button onclick="dodaj('Burger kurczak',17)">Dodaj</button></p>
+<p>Smash Burger 24 zł <button onclick="dodaj('Smash Burger',24)">Dodaj</button></p>
+</div>
+
+<div class="card">
+<h3>Kebaby</h3>
+<p>Kebab wołowina 18 zł <button onclick="dodaj('Kebab wołowina',18)">Dodaj</button></p>
+<p>Kebab kurczak 17 zł <button onclick="dodaj('Kebab kurczak',17)">Dodaj</button></p>
+</div>
+
+<div class="card">
+<h3>Hot Dogi</h3>
+<p>Hot dog 8 zł <button onclick="dodaj('Hot dog',8)">Dodaj</button></p>
+<p>Hot dog amerykański 12 zł <button onclick="dodaj('Hot dog amerykański',12)">Dodaj</button></p>
+</div>
+
+<div class="card">
+<h3>Zapiekanki</h3>
+<p>Tradycyjna 14 zł <button onclick="dodaj('Zapiekanka tradycyjna',14)">Dodaj</button></p>
+<p>Hawajska 15 zł <button onclick="dodaj('Zapiekanka hawajska',15)">Dodaj</button></p>
+<p>Włoska 18 zł <button onclick="dodaj('Zapiekanka włoska',18)">Dodaj</button></p>
+</div>
+
+<div class="card">
+<h3>Dodatki</h3>
+<p>Frytki małe 6 zł <button onclick="dodaj('Frytki małe',6)">Dodaj</button></p>
+<p>Frytki duże 9 zł <button onclick="dodaj('Frytki duże',9)">Dodaj</button></p>
+<p>Cheese Bacon Fries 13 zł <button onclick="dodaj('Cheese Bacon Fries',13)">Dodaj</button></p>
+</div>
+
+<div class="card">
+<h3>Herbaty</h3>
+<p>Czarna 5 zł <button onclick="dodaj('Herbata czarna',5)">Dodaj</button></p>
+<p>Zielona 5 zł <button onclick="dodaj('Herbata zielona',5)">Dodaj</button></p>
+<p>Owocowa 7 zł <button onclick="dodaj('Herbata owocowa',7)">Dodaj</button></p>
+</div>
+
+<div class="card">
+<h3>Kawy</h3>
+<p>Espresso 5 zł <button onclick="dodaj('Espresso',5)">Dodaj</button></p>
+<p>Americano 7 zł <button onclick="dodaj('Americano',7)">Dodaj</button></p>
+<p>Latte 10 zł <button onclick="dodaj('Latte',10)">Dodaj</button></p>
+<p>Mrożone Latte 12 zł <button onclick="dodaj('Mrożone Latte',12)">Dodaj</button></p>
+<p>Mrożone Americano 9 zł <button onclick="dodaj('Mrożone Americano',9)">Dodaj</button></p>
+</div>
+
+<div class="card">
+<h3>Smoothie</h3>
+<p>Bananowe 9 zł <button onclick="dodaj('Smoothie bananowe',9)">Dodaj</button></p>
+<p>Truskawkowe 9 zł <button onclick="dodaj('Smoothie truskawkowe',9)">Dodaj</button></p>
+<p>Bananowo-truskawkowe 10 zł <button onclick="dodaj('Smoothie bananowo-truskawkowe',10)">Dodaj</button></p>
+</div>
+
+<div class="card">
+<h3>Matcha</h3>
+<p>Tradycyjna 11 zł <button onclick="dodaj('Matcha tradycyjna',11)">Dodaj</button></p>
+<p>Truskawkowa 12 zł <button onclick="dodaj('Matcha truskawkowa',12)">Dodaj</button></p>
+<p>Bananowo-czekoladowa 13 zł <button onclick="dodaj('Matcha bananowo-czekoladowa',13)">Dodaj</button></p>
+</div>
+
+<div class="card">
+<h3>Shake</h3>
+<p>Waniliowy 10 zł <button onclick="dodaj('Shake waniliowy',10)">Dodaj</button></p>
+<p>Truskawkowy 10 zł <button onclick="dodaj('Shake truskawkowy',10)">Dodaj</button></p>
+<p>Czekoladowy 10 zł <button onclick="dodaj('Shake czekoladowy',10)">Dodaj</button></p>
+</div>
+
+<div class="card">
+<h3>Desery Lodowe</h3>
+
+<p>Deser lodowy mały 12 zł
+<button onclick="deser('mały',12)">Dodaj</button>
+</p>
+
+<p>Deser lodowy duży 15 zł
+<button onclick="deser('duży',15)">Dodaj</button>
+</p>
+
+<p>Gałka lodów 4 zł
+<button onclick="dodaj('Gałka lodów',4)">Dodaj</button>
+</p>
+</div>
+
+<div class="card">
+<h3>Gofry</h3>
+
+<p>Gofr bazowy 8 zł
+<button onclick="gofr()">Dodaj</button>
+</p>
+
+</div>
+
+<div class="card">
+<h3>Zestawy</h3>
+
+<p>Zestaw 1 - 27 zł <button onclick="dodaj('Zestaw 1',27)">Dodaj</button></p>
+<p>Zestaw 2 - 25 zł <button onclick="dodaj('Zestaw 2',25)">Dodaj</button></p>
+<p>Zestaw 3 - 34 zł <button onclick="dodaj('Zestaw 3',34)">Dodaj</button></p>
+<p>Zestaw 4 - 20 zł <button onclick="dodaj('Zestaw 4',20)">Dodaj</button></p>
+<p>Zestaw 5 - 21 zł <button onclick="dodaj('Zestaw 5',21)">Dodaj</button></p>
+<p>Zestaw 6 - 19 zł <button onclick="dodaj('Zestaw 6',19)">Dodaj</button></p>
+<p>Zestaw 7 - 16 zł <button onclick="dodaj('Zestaw 7',16)">Dodaj</button></p>
+<p>Zestaw 8 - 13 zł <button onclick="dodaj('Zestaw 8',13)">Dodaj</button></p>
+<p>Zestaw 9 - 39 zł <button onclick="dodaj('Zestaw 9',39)">Dodaj</button></p>
+<p>Zestaw 10 - 58 zł <button onclick="dodaj('Zestaw 10',58)">Dodaj</button></p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Koszyk</h2>
+
+<div id="koszyk"></div>
+
+<h3>Razem: <span id="suma">0</span> zł</h3>
+
+<div class="sms">
+<a id="smsLink">Wyślij zamówienie SMS</a>
+</div>
+
+</section>
+
+<script>
+
+let koszyk=[];
+let suma=0;
+
+function dodaj(nazwa,cena){
+    koszyk.push({nazwa,cena});
+    suma+=cena;
+    odswiez();
+}
+
+function deser(rozmiar,cena){
+
+let smak=prompt(
+"Wybierz smak:\nCzekoladowy\nTruskawkowy\nOreo"
+);
+
+if(!smak) return;
+
+dodaj(
+`Deser lodowy ${rozmiar} (${smak})`,
+cena
+);
+
+}
+
+function gofr(){
+
+let cena=8;
+let dodatki=[];
+
+if(confirm("Dodać cukier puder +1 zł?")){
+cena+=1;
+dodatki.push("cukier puder");
+}
+
+if(confirm("Dodać owoce +2 zł?")){
+cena+=2;
+dodatki.push("owoce");
+}
+
+if(confirm("Dodać bitą śmietanę +1 zł?")){
+cena+=1;
+dodatki.push("bita śmietana");
+}
+
+if(confirm("Dodać sos czekoladowy +1 zł?")){
+cena+=1;
+dodatki.push("sos czekoladowy");
+}
+
+if(confirm("Dodać sos truskawkowy +1 zł?")){
+cena+=1;
+dodatki.push("sos truskawkowy");
+}
+
+dodaj(
+"Gofr + "+dodatki.join(", "),
+cena
+);
+
+}
+
+function odswiez(){
+
+let html="";
+let sms="Zamówienie:%0A";
+
+koszyk.forEach(item=>{
+
+html+=`<div class="item">${item.nazwa} - ${item.cena} zł</div>`;
+
+sms+=`${item.nazwa} - ${item.cena} zł%0A`;
+
+});
+
+document.getElementById("koszyk").innerHTML=html;
+document.getElementById("suma").innerText=suma;
+
+sms+="Razem: "+suma+" zł";
+
+document.getElementById("smsLink").href=
+"sms:+48500000000?body="+sms;
+
+}
+
+</script>
+
+</body>
+</html>
